@@ -87,7 +87,7 @@
             <Option name="OptionDemo1" text="消息" float="true" pos="202,20,0,0" width="60" height="30" bkcolor="#FFC5D4F2" selectedtextcolor="#FF0000FF" selectedbkcolor="#FFC5D4F2" group="tabDemo" selected="true" />
             <Option name="OptionDemo2" text="联系人" float="true" pos="282,20,0,0" width="60" height="30" bkcolor="#FFFFDC78" group="tabDemo" />
             <Option name="OptionDemo3" text="云文件" float="true" pos="362,20,0,0" width="60" height="30" bkcolor="#FFBECEA1" group="tabDemo" />
-            <TabLayout name="tabTest" float="true" pos="202,63,0,0" width="255" height="169" bkcolor="#FF757676">  
+            <TabLayout name="tab" float="true" pos="202,63,0,0" width="255" height="169" bkcolor="#FF757676">  
                 <VerticalLayout pos="0,0,200,150" bkcolor="#FF00FFFF">
                     <VerticalLayout width="25" bkcolor="#FFFAFAFA">
                         <Text text="消息1" pos="0, 5, 200, 24" float="true" textcolor="#FF447AA1" font="0" />

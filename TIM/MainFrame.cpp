@@ -4,9 +4,9 @@
 CFrameWindowWnd::CFrameWindowWnd(){};
 CFrameWindowWnd::~CFrameWindowWnd(){};
 
-DUI_BEGIN_MESSAGE_MAP(CFrameWindowWnd, WindowImplBase)
-DUI_ON_MSGTYPE(DUI_MSGTYPE_CLICK, OnClick)
-DUI_END_MESSAGE_MAP()
+//DUI_BEGIN_MESSAGE_MAP(CFrameWindowWnd, WindowImplBase)
+//DUI_ON_MSGTYPE(DUI_MSGTYPE_CLICK, OnClick)
+//DUI_END_MESSAGE_MAP()
 
 LPCTSTR CFrameWindowWnd::GetWindowClassName() const {
 	return _T("UIMainFrame");
@@ -24,34 +24,34 @@ CDuiString CFrameWindowWnd::GetSkinFolder() {
 	return _T("");
 }
 
-//CControlUI* CFrameWindowWnd::CreateControl(LPCTSTR pstrClass)
-//{
-//	return NULL;
-//}
-
-LRESULT CFrameWindowWnd::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+CControlUI* CFrameWindowWnd::CreateControl(LPCTSTR pstrClass)
 {
-	// 有时会在收到WM_NCDESTROY后收到wParam为SC_CLOSE的WM_SYSCOMMAND
-	if (wParam == SC_CLOSE) {
-		::PostQuitMessage(0L);
-		bHandled = TRUE;
-		return 0;
-	}
-	BOOL bZoomed = ::IsZoomed(*this);
-	LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
-	if (::IsZoomed(*this) != bZoomed) {
-		CControlUI* pbtnMax = static_cast<CControlUI*>(m_pm.FindControl(_T("maxbtn")));         // max button
-		CControlUI* pbtnRestore = static_cast<CControlUI*>(m_pm.FindControl(_T("restorebtn"))); // restore button
-
-		// toggle status of max and restore button
-		if (pbtnMax && pbtnRestore)
-		{
-			pbtnMax->SetVisible(TRUE == bZoomed);
-			pbtnRestore->SetVisible(FALSE == bZoomed);
-		}
-	}
-	return lRes;
+	return WindowImplBase::CreateControl(pstrClass);
 }
+
+//LRESULT CFrameWindowWnd::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+//{
+//	// 有时会在收到WM_NCDESTROY后收到wParam为SC_CLOSE的WM_SYSCOMMAND
+//	if (wParam == SC_CLOSE) {
+//		::PostQuitMessage(0L);
+//		bHandled = TRUE;
+//		return 0;
+//	}
+//	BOOL bZoomed = ::IsZoomed(*this);
+//	LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
+//	if (::IsZoomed(*this) != bZoomed) {
+//		CControlUI* pbtnMax = static_cast<CControlUI*>(m_pm.FindControl(_T("maxbtn")));         // max button
+//		CControlUI* pbtnRestore = static_cast<CControlUI*>(m_pm.FindControl(_T("restorebtn"))); // restore button
+//
+//		// toggle status of max and restore button
+//		if (pbtnMax && pbtnRestore)
+//		{
+//			pbtnMax->SetVisible(TRUE == bZoomed);
+//			pbtnRestore->SetVisible(FALSE == bZoomed);
+//		}
+//	}
+//	return lRes;
+//}
 
 LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	LRESULT lRes = 0;
@@ -86,19 +86,18 @@ LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) 
 }
 
 void CFrameWindowWnd::Notify(TNotifyUI& msg) {
-	CDuiString pSenderName = msg.pSender->GetName();
 	if (msg.sType == _T("selectchanged")) {
-		CDuiString    strName = msg.pSender->GetName();
-		CTabLayoutUI* pControl = static_cast<CTabLayoutUI*>(m_pm.FindControl(_T("tabTest")));
+		CDuiString pSenderName = msg.pSender->GetName();
+		CTabLayoutUI* pControl = static_cast<CTabLayoutUI*>(m_pm.FindControl(_T("tab")));
 
-		if (strName == _T("OptionDemo1"))
+		if (pSenderName == _T("OptionDemo1"))
 			pControl->SelectItem(0);
-		else if (strName == _T("OptionDemo2"))
+		else if (pSenderName == _T("OptionDemo2"))
 			pControl->SelectItem(1);
-		else if (strName == _T("OptionDemo3"))
+		else if (pSenderName == _T("OptionDemo3"))
 			pControl->SelectItem(2);
 	}
-	__super::Notify(msg);
+	WindowImplBase::Notify(msg);
 }
 
 void CFrameWindowWnd::OnClick(TNotifyUI& msg) {
@@ -136,5 +135,8 @@ void CFrameWindowWnd::OnClick(TNotifyUI& msg) {
 	else if (pSenderName == _T("restorebtn"))
 	{
 		SendMessage(WM_SYSCOMMAND, SC_RESTORE, NULL);
+	}
+	else {
+		WindowImplBase::OnClick(msg);
 	}
 }

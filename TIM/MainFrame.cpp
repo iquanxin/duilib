@@ -4,9 +4,10 @@
 CFrameWindowWnd::CFrameWindowWnd(){};
 CFrameWindowWnd::~CFrameWindowWnd(){};
 
-//DUI_BEGIN_MESSAGE_MAP(CFrameWindowWnd, WindowImplBase)
-//DUI_ON_MSGTYPE(DUI_MSGTYPE_CLICK, OnClick)
-//DUI_END_MESSAGE_MAP()
+DUI_BEGIN_MESSAGE_MAP(CFrameWindowWnd, WindowImplBase)
+DUI_ON_MSGTYPE(DUI_MSGTYPE_CLICK, OnClick)
+DUI_ON_MSGTYPE(DUI_MSGTYPE_SELECTCHANGED, OnSelectChanged)
+DUI_END_MESSAGE_MAP()
 
 LPCTSTR CFrameWindowWnd::GetWindowClassName() const {
 	return _T("UIMainFrame");
@@ -29,31 +30,8 @@ CControlUI* CFrameWindowWnd::CreateControl(LPCTSTR pstrClass)
 	return WindowImplBase::CreateControl(pstrClass);
 }
 
-//LRESULT CFrameWindowWnd::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
-//{
-//	// 有时会在收到WM_NCDESTROY后收到wParam为SC_CLOSE的WM_SYSCOMMAND
-//	if (wParam == SC_CLOSE) {
-//		::PostQuitMessage(0L);
-//		bHandled = TRUE;
-//		return 0;
-//	}
-//	BOOL bZoomed = ::IsZoomed(*this);
-//	LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
-//	if (::IsZoomed(*this) != bZoomed) {
-//		CControlUI* pbtnMax = static_cast<CControlUI*>(m_pm.FindControl(_T("maxbtn")));         // max button
-//		CControlUI* pbtnRestore = static_cast<CControlUI*>(m_pm.FindControl(_T("restorebtn"))); // restore button
-//
-//		// toggle status of max and restore button
-//		if (pbtnMax && pbtnRestore)
-//		{
-//			pbtnMax->SetVisible(TRUE == bZoomed);
-//			pbtnRestore->SetVisible(FALSE == bZoomed);
-//		}
-//	}
-//	return lRes;
-//}
-
-LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) {
+LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
 	LRESULT lRes = 0;
 
 	if (uMsg == WM_CREATE) {
@@ -85,30 +63,105 @@ LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) 
 	return WindowImplBase::HandleMessage(uMsg, wParam, lParam);
 }
 
-void CFrameWindowWnd::Notify(TNotifyUI& msg) {
-	if (msg.sType == _T("selectchanged")) {
-		CDuiString pSenderName = msg.pSender->GetName();
-		CTabLayoutUI* pControl = static_cast<CTabLayoutUI*>(m_pm.FindControl(_T("tab")));
+LRESULT CFrameWindowWnd::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+{
+	// 有时会在收到WM_NCDESTROY后收到wParam为SC_CLOSE的WM_SYSCOMMAND
+	if (wParam == SC_CLOSE) {
+		::PostQuitMessage(0L);
+		bHandled = TRUE;
+		return 0;
+	}
+	BOOL bZoomed = ::IsZoomed(*this);
+	LRESULT lRes = CWindowWnd::HandleMessage(uMsg, wParam, lParam);
+	if (::IsZoomed(*this) != bZoomed) {
+		CControlUI* pbtnMax = static_cast<CControlUI*>(m_pm.FindControl(_T("maxbtn")));         // max button
+		CControlUI* pbtnRestore = static_cast<CControlUI*>(m_pm.FindControl(_T("restorebtn"))); // restore button
 
-		if (pSenderName == _T("OptionDemo1"))
-			pControl->SelectItem(0);
-		else if (pSenderName == _T("OptionDemo2"))
-			pControl->SelectItem(1);
-		else if (pSenderName == _T("OptionDemo3"))
-			pControl->SelectItem(2);
+		// toggle status of max and restore button
+		if (pbtnMax && pbtnRestore)
+		{
+			pbtnMax->SetVisible(TRUE == bZoomed);
+			pbtnRestore->SetVisible(FALSE == bZoomed);
+		}
+	}
+	return lRes;
+}
+
+void CFrameWindowWnd::Notify(TNotifyUI& msg) {
+	CDuiString pSenderName = msg.pSender->GetName();
+	TCHAR alert_msg[255] = { 0 };
+	wsprintf(alert_msg, _T("操作控件名：%s"), pSenderName);
+	OutputDebugString(alert_msg);
+	TCHAR alert_msg2[255] = { 0 };
+	wsprintf(alert_msg2, _T(" -> %s\r\n"), msg.sType);
+	OutputDebugString(alert_msg2);
+	if (pSenderName == _T("ComboDemo")) {
+		if (msg.sType == _T("itemselect")) {
+			CComboUI *pCombo = static_cast<CComboUI*>(m_pm.FindControl(_T("ComboDemo")));
+			if (!pCombo)
+				return;
+			TCHAR alert_msg3[255] = { 0 };
+			iComboIndex = pCombo->GetCurSel();
+			wsprintf(alert_msg3, _T("Combo选中项：%d\r\n"), iComboIndex);
+			OutputDebugString(alert_msg3);
+		}
+	}
+	else if (pSenderName == _T("ListDemo1")) {
+		if (msg.sType == _T("itemselect")) {
+			CListUI *pList = static_cast<CListUI*>(m_pm.FindControl(_T("ListDemo1")));
+			if (!pList)
+				return;
+			TCHAR alert_msg3[255] = { 0 };
+			iListIndex = pList->GetCurSel();
+			wsprintf(alert_msg3, _T("List选中项：%d\r\n"), iListIndex);
+			OutputDebugString(alert_msg3);
+			CListTextElementUI* pListElement = static_cast<CListTextElementUI*>(pList->GetItemAt(iListIndex));
+			if (pListElement != NULL)
+			{
+				LPCTSTR pstr0 = pListElement->GetText(0);
+				LPCTSTR pstr1 = pListElement->GetText(1);
+				LPCTSTR pstr2 = pListElement->GetText(2);
+				TCHAR alert_msg4[255] = { 0 };
+				wsprintf(alert_msg4, _T("Lista选中项：%s\r\n"), pstr2);
+				OutputDebugString(alert_msg4);
+				//LPCTSTR pstr1 = pListElement->GetText(0);
+				//LPCTSTR pstr2 = pListElement->GetText(1);
+
+				//pListElement->SetText(0, _T("test1"));
+				//pListElement->SetText(1, _T("test2"));
+			}
+		}
 	}
 	WindowImplBase::Notify(msg);
 }
 
+void CFrameWindowWnd::OnSelectChanged(TNotifyUI& msg) {
+	CDuiString pSenderName = msg.pSender->GetName();
+	CTabLayoutUI* pControl = static_cast<CTabLayoutUI*>(m_pm.FindControl(_T("tab")));
+	TCHAR alert_msg[64] = { 0 };
+	wsprintf(alert_msg, _T("Tab选中了%s\r\n"), pSenderName);
+	OutputDebugString(alert_msg);
+
+	if (pSenderName == _T("OptionDemo1"))
+		pControl->SelectItem(0);
+	else if (pSenderName == _T("OptionDemo2"))
+		pControl->SelectItem(1);
+	else if (pSenderName == _T("OptionDemo3"))
+		pControl->SelectItem(2);
+}
+
 void CFrameWindowWnd::OnClick(TNotifyUI& msg) {
 	CDuiString pSenderName = msg.pSender->GetName();
+	TCHAR alert_msg[64] = { 0 };
+	wsprintf(alert_msg, _T("OnClick %s\r\n"), pSenderName);
+	OutputDebugString(alert_msg);
 	if (pSenderName == _T("openBtn")) {
-		CEditUI * m_pHelpBtn = static_cast<CEditUI*>(m_pm.FindControl(_T("button1")));
+		CEditUI *m_pEdit = static_cast<CEditUI*>(m_pm.FindControl(_T("editName")));
 
-		ASSERT(m_pHelpBtn != NULL);
-		if (m_pHelpBtn) {
-			//m_pHelpBtn->SetVisible(false);
-			::MessageBox(NULL, m_pHelpBtn->GetText(), _T("提示"), NULL);
+		ASSERT(m_pEdit != NULL);
+		if (m_pEdit) {
+			m_pEdit->SetVisible(false);
+			::MessageBox(NULL, m_pEdit->GetText(), _T("提示"), NULL);
 		}
 		else {
 			::MessageBox(NULL, _T("按钮不存在"), _T("提示"), NULL);

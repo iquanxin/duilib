@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 
 namespace DuiLib
 {
@@ -108,7 +108,7 @@ LRESULT WindowImplBase::OnNcCalcSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BO
 	}
 
 	if ( ::IsZoomed(m_hWnd))
-	{	// ◊Ó¥ÛªØ ±£¨º∆À„µ±«∞œ‘ æ∆˜◊Ó  ∫œøÌ∏ﬂ∂»
+	{	// ÊúÄÂ§ßÂåñÊó∂ÔºåËÆ°ÁÆóÂΩìÂâçÊòæÁ§∫Âô®ÊúÄÈÄÇÂêàÂÆΩÈ´òÂ∫¶
 		MONITORINFO oMonitor = {};
 		oMonitor.cbSize = sizeof(oMonitor);
 		::GetMonitorInfo(::MonitorFromWindow(*this, MONITOR_DEFAULTTONEAREST), &oMonitor);
@@ -181,7 +181,7 @@ LRESULT WindowImplBase::OnGetMinMaxInfo(UINT uMsg, WPARAM wParam, LPARAM lParam,
 	CDuiRect rcMonitor = oMonitor.rcMonitor;
 	rcWork.Offset(-oMonitor.rcMonitor.left, -oMonitor.rcMonitor.top);
 
-	// º∆À„◊Ó¥ÛªØ ±£¨’˝»∑µƒ‘≠µ„◊¯±Í
+	// ËÆ°ÁÆóÊúÄÂ§ßÂåñÊó∂ÔºåÊ≠£Á°ÆÁöÑÂéüÁÇπÂùêÊ†á
 	lpMMI->ptMaxPosition.x	= rcWork.left;
 	lpMMI->ptMaxPosition.y	= rcWork.top;
 
@@ -329,7 +329,7 @@ LRESULT WindowImplBase::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 	ASSERT(pRoot);
 	if (pRoot==NULL)
 	{
-		MessageBox(NULL,_T("º”‘ÿ◊ ‘¥Œƒº˛ ß∞‹"),_T("Duilib"),MB_OK|MB_ICONERROR);
+		MessageBox(NULL,_T("Âä†ËΩΩËµÑÊ∫êÊñá‰ª∂Â§±Ë¥•"),_T("Duilib"),MB_OK|MB_ICONERROR);
 		ExitProcess(1);
 		return 0;
 	}

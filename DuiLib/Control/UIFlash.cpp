@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "UIFlash.h"
 #include <atlcomcli.h>
 
@@ -211,7 +211,7 @@ namespace DuiLib
 		if( m_pFlash == NULL )
 			return E_NOTIMPL;
 
-		// µ±Ç°Web´°¿Ú²»ÊÇ½¹µã,²»´¦Àí¼ÓËÙ¼ü
+		// å½“å‰Webçª—å£ä¸æ˜¯ç„¦ç‚¹,ä¸å¤„ç†åŠ é€Ÿé”®
 		BOOL bIsChild = FALSE;
 		HWND hTempWnd = NULL;
 		HWND hWndFocus = ::GetFocus();

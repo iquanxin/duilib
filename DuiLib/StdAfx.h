@@ -1,4 +1,4 @@
-// stdafx.h : include file for standard system include files,
+ï»¿// stdafx.h : include file for standard system include files,
 //  or project specific include files that are used frequently, but
 //      are changed infrequently
 //
@@ -9,7 +9,7 @@
 #pragma once
 
 #ifdef __GNUC__
-// ÔõÃ´¶¼Ã»ÕÒµ½min£¬maxµÄÍ·ÎÄ¼þ-_-
+// æ€Žä¹ˆéƒ½æ²¡æ‰¾åˆ°minï¼Œmaxçš„å¤´æ–‡ä»¶-_-
 #ifndef min
 #define min(a,b) (((a) < (b)) ? (a) : (b))
 #endif

@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 
 namespace DuiLib {
 
@@ -278,7 +278,7 @@ void CListUI::RemoveAll()
 
 void CListUI::SetPos(RECT rc, bool bNeedInvalidate)
 {
-	if( m_pHeader != NULL ) { // ÉèÖÃheader¸÷×ÓÔªËØx×ø±ê,ÒòÎªÓÐÐ©listitemµÄsetposÐèÒªÓÃµ½(ÁÙÊ±ÐÞ¸´)
+	if( m_pHeader != NULL ) { // è®¾ç½®headerå„å­å…ƒç´ xåæ ‡,å› ä¸ºæœ‰äº›listitemçš„setposéœ€è¦ç”¨åˆ°(ä¸´æ—¶ä¿®å¤)
 		int iLeft = rc.left + m_rcInset.left;
 		int iRight = rc.right - m_rcInset.right;
 
@@ -1363,7 +1363,7 @@ bool CListBodyUI::DoPaint(HDC hDC, const RECT& rcPaint, CControlUI* pStopControl
                         iDrawIndex += 1;
                     }
                     if (pListInfo && pListInfo->iHLineSize > 0) {
-                        // ÒòÎªÃ»ÓÐÎª×îºóÒ»¸öÔ¤Áô·Ö¸îÌõ³¤¶È£¬Èç¹ûlistÆÌÂú£¬×îºóÒ»Ìõ²»»áÏÔÊ¾
+                        // å› ä¸ºæ²¡æœ‰ä¸ºæœ€åŽä¸€ä¸ªé¢„ç•™åˆ†å‰²æ¡é•¿åº¦ï¼Œå¦‚æžœlisté“ºæ»¡ï¼Œæœ€åŽä¸€æ¡ä¸ä¼šæ˜¾ç¤º
                         RECT rcPadding = pControl->GetPadding();
                         const RECT& rcPos = pControl->GetPos();
                         RECT rcBottomLine = { rcPos.left, rcPos.bottom + rcPadding.bottom, rcPos.right, rcPos.bottom + rcPadding.bottom + pListInfo->iHLineSize };
@@ -2579,7 +2579,7 @@ void CListTextElementUI::DrawItemText(HDC hDC, const RECT& rcItem)
             rcItem.top += pInfo->rcTextPadding.top;
             rcItem.bottom -= pInfo->rcTextPadding.bottom;
 
-            CDuiString strText;//²»Ê¹ÓÃLPCTSTR£¬·ñÔòÏÞÖÆÌ«¶à by cddjr 2011/10/20
+            CDuiString strText;//ä¸ä½¿ç”¨LPCTSTRï¼Œå¦åˆ™é™åˆ¶å¤ªå¤š by cddjr 2011/10/20
             if( pCallback ) strText = pCallback->GetItemText(this, m_iIndex, i);
             else strText.Assign(GetText(i));
             if( pInfo->bShowHtml )

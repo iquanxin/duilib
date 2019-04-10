@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "UIDateTime.h"
 
 namespace DuiLib
@@ -197,7 +197,7 @@ namespace DuiLib
 		m_bReadOnly = false;
 		m_pWindow = NULL;
 		m_nDTUpdateFlag=DT_UPDATE;
-		UpdateText();		// add by:daviyang35 ³õÊ¼»¯½çÃæÊ±ÏÔÊ¾Ê±¼ä
+		UpdateText();		// add by:daviyang35 åˆå§‹åŒ–ç•Œé¢æ—¶æ˜¾ç¤ºæ—¶é—´
 		m_nDTUpdateFlag = DT_NONE;
 	}
 

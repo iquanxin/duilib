@@ -1,4 +1,4 @@
-// WndShadow.h : header file
+ï»¿// WndShadow.h : header file
 //
 // Version 0.1
 //
@@ -90,10 +90,10 @@ public:
 	operator HWND() const;
 	void Create(HWND hParentWnd);
 
-	// Ê¹ÓÃÍ¼Æ¬Ö»ĞèÒªµ÷ÓÃÕâ¸ö·½·¨(rcHoleOffset×÷ÓÃÊÇĞŞ¸´Ô²½ÇÏÔÊ¾¿Õ°×µÄbug)
+	// ä½¿ç”¨å›¾ç‰‡åªéœ€è¦è°ƒç”¨è¿™ä¸ªæ–¹æ³•(rcHoleOffsetä½œç”¨æ˜¯ä¿®å¤åœ†è§’æ˜¾ç¤ºç©ºç™½çš„bug)
 	bool SetImage(LPCTSTR image, RECT rcCorner, RECT rcHoleOffset);
 
-	// Ê¹ÓÃÑÕÉ«¿ÉÒÔÊ¹ÓÃÈçÏÂ¼¸¸ö·½·¨
+	// ä½¿ç”¨é¢œè‰²å¯ä»¥ä½¿ç”¨å¦‚ä¸‹å‡ ä¸ªæ–¹æ³•
 	bool SetSize(int NewSize = 0);
 	bool SetSharpness(unsigned int NewSharpness = 5);
 	bool SetDarkness(unsigned int NewDarkness = 200);

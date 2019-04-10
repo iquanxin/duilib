@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+ï»¿#include "StdAfx.h"
 
 namespace DuiLib {
 
@@ -779,7 +779,7 @@ LPCTSTR CActiveXWnd::GetWindowClassName() const
 void CActiveXWnd::OnFinalMessage(HWND hWnd)
 {
 	m_pOwner->m_pOwner->GetManager()->RemoveNativeWindow(hWnd);
-    //delete this; // ÕâÀï²»ĞèÒªÇåÀí£¬CActiveXUI»áÇåÀíµÄ
+    //delete this; // è¿™é‡Œä¸éœ€è¦æ¸…ç†ï¼ŒCActiveXUIä¼šæ¸…ç†çš„
 }
 
 void CActiveXWnd::DoVerb(LONG iVerb)

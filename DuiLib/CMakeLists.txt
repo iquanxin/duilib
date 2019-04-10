@@ -1,4 +1,4 @@
-# cmake file for duilib
+﻿# cmake file for duilib
 #Author Qi Gao(monkgau@gmail.com)
 #Created: 2012/09/16
 

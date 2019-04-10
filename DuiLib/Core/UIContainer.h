@@ -1,4 +1,4 @@
-#ifndef __UICONTAINER_H__
+ï»¿#ifndef __UICONTAINER_H__
 #define __UICONTAINER_H__
 
 #pragma once
@@ -54,7 +54,7 @@ public:
     void SetMouseEnabled(bool bEnable = true);
 
     virtual RECT GetInset() const;
-    virtual void SetInset(RECT rcInset); // ÉèÖÃÄÚ±ß¾à£¬Ïàµ±ÓÚÉèÖÃ¿Í»§Çø
+    virtual void SetInset(RECT rcInset); // è®¾ç½®å†…è¾¹è·ï¼Œç›¸å½“äºè®¾ç½®å®¢æˆ·åŒº
     virtual int GetChildPadding() const;
     virtual void SetChildPadding(int iPadding);
 	virtual UINT GetChildAlign() const;
@@ -123,7 +123,7 @@ protected:
     bool m_bAutoDestroy;
     bool m_bDelayedDestroy;
     bool m_bMouseChildEnabled;
-    bool m_bScrollProcess; // ·ÀÖ¹SetPosÑ­»·µ÷ÓÃ
+    bool m_bScrollProcess; // é˜²æ­¢SetPoså¾ªç¯è°ƒç”¨
 
     CScrollBarUI* m_pVerticalScrollBar;
     CScrollBarUI* m_pHorizontalScrollBar;

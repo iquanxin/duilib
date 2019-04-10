@@ -1,4 +1,4 @@
-#ifndef WIN_IMPL_BASE_HPP
+О╩©#ifndef WIN_IMPL_BASE_HPP
 #define WIN_IMPL_BASE_HPP
 
 namespace DuiLib
@@ -6,10 +6,10 @@ namespace DuiLib
 
 	enum UILIB_RESOURCETYPE
 	{
-		UILIB_FILE=1,				// ю╢вт╢еелнд╪Ч
-		UILIB_ZIP,						// ю╢вт╢еелzipя╧кУ╟Э
-		UILIB_RESOURCE,			// ю╢втвйт╢
-		UILIB_ZIPRESOURCE,	// ю╢втвйт╢╣дzipя╧кУ╟Э
+		UILIB_FILE=1,				// Ф²╔Х┤╙Гё│Г⌡≤Ф√┤Д╩╤
+		UILIB_ZIP,						// Ф²╔Х┤╙Гё│Г⌡≤zipЕ▌▀Г╪╘Е▄┘
+		UILIB_RESOURCE,			// Ф²╔Х┤╙Х╣└Ф╨░
+		UILIB_ZIPRESOURCE,	// Ф²╔Х┤╙Х╣└Ф╨░Г └zipЕ▌▀Г╪╘Е▄┘
 	};
 
 	class DUILIB_API WindowImplBase

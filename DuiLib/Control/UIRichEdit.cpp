@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #ifdef _USEIMM
 #include <imm.h>
 #pragma comment(lib, "imm32.lib")
@@ -152,7 +152,7 @@ private:
     unsigned	fTimer				:1;	// A timer is set
     unsigned    fCaptured           :1;
 	unsigned    fShowCaret          :1;
-	unsigned    fNeedFreshCaret     :1; // ĞŞÕı¸Ä±ä´óĞ¡ºóµã»÷ÆäËûÎ»ÖÃÔ­À´¹â±ê²»ÄÜÏû³ıµÄÎÊÌâ
+	unsigned    fNeedFreshCaret     :1; // ä¿®æ­£æ”¹å˜å¤§å°åç‚¹å‡»å…¶ä»–ä½ç½®åŸæ¥å…‰æ ‡ä¸èƒ½æ¶ˆé™¤çš„é—®é¢˜
 
 	INT         iCaretWidth;
 	INT         iCaretHeight;
@@ -1799,8 +1799,8 @@ void CRichEditUI::OnTxNotify(DWORD iNotify, void *pv)
 	}
 }
 
-// ¶àĞĞ·Çrich¸ñÊ½µÄricheditÓĞÒ»¸ö¹ö¶¯Ìõbug£¬ÔÚ×îºóÒ»ĞĞÊÇ¿ÕĞĞÊ±£¬LineDownºÍSetScrollPosÎŞ·¨¹ö¶¯µ½×îºó
-// ÒıÈëiPos¾ÍÊÇÎªÁËĞŞÕıÕâ¸öbug
+// å¤šè¡Œérichæ ¼å¼çš„richeditæœ‰ä¸€ä¸ªæ»šåŠ¨æ¡bugï¼Œåœ¨æœ€åä¸€è¡Œæ˜¯ç©ºè¡Œæ—¶ï¼ŒLineDownå’ŒSetScrollPosæ— æ³•æ»šåŠ¨åˆ°æœ€å
+// å¼•å…¥iPoså°±æ˜¯ä¸ºäº†ä¿®æ­£è¿™ä¸ªbug
 void CRichEditUI::SetScrollPos(SIZE szPos)
 {
     int cx = 0;
@@ -1989,7 +1989,7 @@ void CRichEditUI::DoEvent(TEventUI& event)
 
 SIZE CRichEditUI::EstimateSize(SIZE szAvailable)
 {
-    //return CDuiSize(m_rcItem); // ÕâÖÖ·½Ê½ÔÚµÚÒ»´ÎÉèÖÃ´óĞ¡Ö®ºó¾Í´óĞ¡²»±äÁË
+    //return CDuiSize(m_rcItem); // è¿™ç§æ–¹å¼åœ¨ç¬¬ä¸€æ¬¡è®¾ç½®å¤§å°ä¹‹åå°±å¤§å°ä¸å˜äº†
     return CContainerUI::EstimateSize(szAvailable);
 }
 

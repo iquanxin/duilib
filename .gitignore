@@ -31,6 +31,8 @@
 *.out
 *.app
 
+DuiLib.v12.suo
+
 /Duilib/build
 /lib
 

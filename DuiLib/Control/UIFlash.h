@@ -1,7 +1,7 @@
-/*
-	´´½¨ÈÕÆÚ£º	2012/11/05 15:09:48
-	×÷Õß£º			daviyang35@gmail.com
-	ÃèÊö£º	FlashUI
+ï»¿/*
+	åˆ›å»ºæ—¥æœŸï¼š	2012/11/05 15:09:48
+	ä½œè€…ï¼š			daviyang35@gmail.com
+	æè¿°ï¼š	FlashUI
 */
 #ifndef __UIFLASH_H__
 #define __UIFLASH_H__
@@ -47,7 +47,7 @@ namespace DuiLib
 		HRESULT RegisterEventHandler(BOOL inAdvise);
 
 		// ITranslateAccelerator
-		// DuilibÏûÏ¢·Ö·¢¸øWebBrowser
+		// Duilibæ¶ˆæ¯åˆ†å‘ç»™WebBrowser
 		virtual LRESULT TranslateAccelerator( MSG *pMsg );
 
 	private:

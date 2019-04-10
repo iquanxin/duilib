@@ -1,4 +1,4 @@
-#include "stb_image.h"
+﻿#include "stb_image.h"
 #define STB_IMAGE_IMPLEMENTATION
 /* stb_image - v2.05 - public domain image loader - http://nothings.org/stb_image.h
                                      no warranty implied; use at your own risk

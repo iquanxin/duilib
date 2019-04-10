@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "MainFrame.h"
 
 int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
@@ -7,11 +7,11 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	_In_ int       nCmdShow)
 {
 	CPaintManagerUI::SetInstance(hInstance);
-	CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath()); // ÉèÖÃ×ÊÔ´µÄÄ¬ÈÏÂ·¾¶
+	CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath()); // è®¾ç½®èµ„æºçš„é»˜è®¤è·¯å¾„
 
 	CFrameWindowWnd *pFrame = new CFrameWindowWnd();
 	if (pFrame == NULL) return 0;
-	pFrame->Create(NULL, _T("Èí¼þ¹¤³Ì"), UI_WNDSTYLE_FRAME, WS_EX_STATICEDGE | WS_EX_APPWINDOW);
+	pFrame->Create(NULL, _T("è½¯ä»¶å·¥ç¨‹"), UI_WNDSTYLE_FRAME, WS_EX_STATICEDGE | WS_EX_APPWINDOW);
 	pFrame->CenterWindow();
 	pFrame->ShowModal();
 	return 0;

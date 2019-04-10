@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "MainFrame.h"
 
 CFrameWindowWnd::CFrameWindowWnd(){};
@@ -31,7 +31,7 @@ CDuiString CFrameWindowWnd::GetSkinFolder() {
 
 LRESULT CFrameWindowWnd::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	// ÓĞÊ±»áÔÚÊÕµ½WM_NCDESTROYºóÊÕµ½wParamÎªSC_CLOSEµÄWM_SYSCOMMAND
+	// æœ‰æ—¶ä¼šåœ¨æ”¶åˆ°WM_NCDESTROYåæ”¶åˆ°wParamä¸ºSC_CLOSEçš„WM_SYSCOMMAND
 	if (wParam == SC_CLOSE) {
 		::PostQuitMessage(0L);
 		bHandled = TRUE;
@@ -66,7 +66,7 @@ LRESULT CFrameWindowWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) 
 		CControlUI* pRoot = builder.Create(_T("./res/tim.xml"), (UINT)0, NULL, &m_pm);
 		ASSERT(pRoot && "Failed to parse XML");
 		m_pm.AttachDialog(pRoot);
-		m_pm.AddNotifier(this); //Ìí¼Ó¿Ø¼şµÈÏûÏ¢ÏìÓ¦£¬ÕâÑùÏûÏ¢¾Í»á´«´ïµ½duilibµÄÏûÏ¢Ñ­»·£¬ÎÒÃÇ¿ÉÒÔÔÚNotifyº¯ÊıÀï×öÏûÏ¢´¦Àí
+		m_pm.AddNotifier(this); //æ·»åŠ æ§ä»¶ç­‰æ¶ˆæ¯å“åº”ï¼Œè¿™æ ·æ¶ˆæ¯å°±ä¼šä¼ è¾¾åˆ°duilibçš„æ¶ˆæ¯å¾ªç¯ï¼Œæˆ‘ä»¬å¯ä»¥åœ¨Notifyå‡½æ•°é‡Œåšæ¶ˆæ¯å¤„ç†
 		return lRes;
 	}
 	else if (uMsg == WM_NCACTIVATE) {
@@ -109,17 +109,17 @@ void CFrameWindowWnd::OnClick(TNotifyUI& msg) {
 		ASSERT(m_pHelpBtn != NULL);
 		if (m_pHelpBtn) {
 			//m_pHelpBtn->SetVisible(false);
-			::MessageBox(NULL, m_pHelpBtn->GetText(), _T("ÌáÊ¾"), NULL);
+			::MessageBox(NULL, m_pHelpBtn->GetText(), _T("æç¤º"), NULL);
 		}
 		else {
-			::MessageBox(NULL, _T("°´Å¥²»´æÔÚ"), _T("ÌáÊ¾"), NULL);
+			::MessageBox(NULL, _T("æŒ‰é’®ä¸å­˜åœ¨"), _T("æç¤º"), NULL);
 		}
 	}
 	else if (pSenderName == _T("helpBtn")) {
-		::MessageBox(NULL, _T("ÇóÖú°´Å¥"), _T("ÌáÊ¾"), NULL);
+		::MessageBox(NULL, _T("æ±‚åŠ©æŒ‰é’®"), _T("æç¤º"), NULL);
 	}
 	else if (pSenderName == _T("closebtn")) {
-		if (MessageBox(GetHWND(), TEXT("ÊÇ·ñÕæµÄÍË³ö³ÌĞò£¿"), TEXT("ÌáÊ¾"), MB_YESNO | MB_ICONINFORMATION) == IDNO)
+		if (MessageBox(GetHWND(), TEXT("æ˜¯å¦çœŸçš„é€€å‡ºç¨‹åºï¼Ÿ"), TEXT("æç¤º"), MB_YESNO | MB_ICONINFORMATION) == IDNO)
 		{
 			return;
 		}

@@ -33,3 +33,6 @@
 
 /Duilib/build
 /lib
+
+#TIM 过滤
+/TIM/Debug

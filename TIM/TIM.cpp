@@ -1,4 +1,5 @@
 ﻿#include "stdafx.h"
+#include "TIM.h"
 #include "MainFrame.h"
 
 int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
@@ -11,7 +12,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 	CFrameWindowWnd *pFrame = new CFrameWindowWnd();
 	if (pFrame == NULL) return 0;
-	pFrame->Create(NULL, _T("软件工程"), UI_WNDSTYLE_FRAME, WS_EX_STATICEDGE | WS_EX_APPWINDOW);
+	pFrame->Create(NULL, _T("TIM"), UI_WNDSTYLE_FRAME, WS_EX_STATICEDGE | WS_EX_APPWINDOW);
 	pFrame->CenterWindow();
 	pFrame->ShowModal();
 	return 0;

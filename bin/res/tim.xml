@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Window size="1160,680" mininfo="600,400" caption="0,0,0,55" sizebox="4,4,4,4" shadowcorner="23,13,23,33" shadowimage="res/shadow.png"> <!-- 窗口的初始尺寸(宽800，高600)、窗口的最小尺寸(宽600，高400)、标题栏拖拽区域(高32)、可拖拽边框大小(这里添加sizebox后就可以拖拽边框调整大小了) -->
+<Window size="1160,680" caption="0,0,0,55" sizebox="4,4,4,4" shadowcorner="23,13,23,33" shadowimage="res/shadow.png">
     <Font id="0" name="微软雅黑" size="16"/>
 	<Font id="1" name="微软雅黑" size="12"/>
 	<Font id="3" name="微软雅黑" size="15"/>
 	<Font id="4" name="微软雅黑" size="14"/>
     <Default name="Button" value="textcolor=&quot;#000000&quot; hottextcolor=&quot;#FFFFFF&quot; focusedtextcolor=&quot;#000000&quot; pushedtextcolor=&quot;#77a8de&quot; normalimage=&quot;file='res/Button/btn.png' corner='5,11,5,11' source='0,0,96,24'&quot; hotimage=&quot;file='res/Button/btn.png' corner='5,11,5,11' source='0,24,96,48'&quot; pushedimage=&quot;file='res/Button/btn.png' corner='5,11,5,11' source='0,48,96,72'&quot; disabledimage=&quot;file='res/Button/btn.png' corner='5,11,5,11' source='0,72,96,96'&quot;" />
-    <VerticalLayout bkcolor="#FFF0F0F0" bkcolor2="#FFAAAAA0"> <!-- 整个窗口的背景色 -->
+    <VerticalLayout bkcolor="#FFF0F0F0" bkcolor2="#FFAAAAA0">
     
-        <!-- 标题栏区 -->
-        <HorizontalLayout height="55" bkcolor="#FFE6E6DC" bkcolor2="#FFAAAAA0" bkimage="res/bg.png"> <!-- 标题栏背景色 bkcolor、bkcolor2、bkcolor3分别是渐变色的三个值-->         
+        <HorizontalLayout height="55" bkcolor="#FFE6E6DC" bkcolor2="#FFAAAAA0" bkimage="res/bg.png">     
             <HorizontalLayout width="90" height="25" padding="0,20,0,0">
                 <Container width="22" height="26" bkimage="file='res/user.png' source='0,0,0,0' dest='5,4,21,20' " />
                 <Text text="软件工程" pos="25, 0, 100, 24" float="true" textcolor="#FFFFFFA1" font="0" />
             </HorizontalLayout>
-            <HorizontalLayout /> <!-- 占空位，占据左边所有的空位-->
+            <HorizontalLayout />
             <HorizontalLayout width="150" height="32" padding="0,12,0,0">
 				<Option tooltip="消息" group="title" name="OptionDemo1" padding="0,0,0,0" pos="0,0,32,0" selected="true" normalimage="res/icon_last_normal.png" hotimage="res/icon_last_hover.png"  pushedimage="res/icon_last_selected.png" selectedimage="res/icon_last_selected.png"/>
 				<Option tooltip="联系人" group="title" name="OptionDemo2" padding="30,0,0,0" pos="0,0,32,0" normalimage="res/icon_contacts_normal.png" hotimage="res/icon_contacts_hover.png" pushedimage="res/icon_contacts_selected.png" selectedimage="res/icon_contacts_selected.png"/>
 				<Option tooltip="在线文档" group="title" name="OptionDemo3" padding="30,0,0,0" pos="0,0,32,0" normalimage="res/icon_file_normal.png" hotimage="res/icon_file_hover.png" pushedimage="res/icon_file_selected.png" selectedimage="res/icon_file_selected.png"/>
 			</HorizontalLayout>
-            <HorizontalLayout /> <!-- 占空位，占据左边所有的空位-->
-            <HorizontalLayout width="86" height="16" padding="0,20,0,0"> <!-- 右边三个控件所占的宽度-->
+            <HorizontalLayout />
+            <HorizontalLayout width="86" height="16" padding="0,20,0,0">
                 <Button name="minbtn" tooltip="最小化" padding="8,0,0,0" pos="0,0,16,0" normalimage="res/minNormal.png" hotimage="res/minFocus.png" pushedimage="res/minDown.png"/>
                 <Button name="maxbtn" tooltip="最大化" padding="8,0,0,0" pos="0,0,16,0" normalimage="res/maxNormal.png" hotimage="res/maxFocus.png" pushedimage="res/maxDown.png" />
                 <Button visible="false" name="restorebtn" tooltip="还原" padding="8,0,0,0" pos="0,0,16,0" normalimage="res/restoreNormal.png" hotimage="res/restoreFocus.png" pushedimage="res/restoreDown.png" />
@@ -28,7 +27,6 @@
             </HorizontalLayout>      
         </HorizontalLayout>
 
-        <!-- 客户区 -->
         <HorizontalLayout>
             <Label text="Label控件" width="100" height="30" float="true" pos="10,20,0,0" align="center" bkcolor="0xFFFFFFFF" />
             

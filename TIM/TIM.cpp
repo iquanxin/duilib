@@ -12,8 +12,9 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 	CFrameWindowWnd *pFrame = new CFrameWindowWnd();
 	if (pFrame == NULL) return 0;
-	pFrame->Create(NULL, _T("TIM"), UI_WNDSTYLE_FRAME, WS_EX_STATICEDGE | WS_EX_APPWINDOW);
+	pFrame->Create(NULL, _T("TIM"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
 	pFrame->CenterWindow();
 	pFrame->ShowModal();
+	delete pFrame;
 	return 0;
 }

@@ -66,7 +66,7 @@ void CFrameWindowWnd::Notify(TNotifyUI& msg) {
 				return;
 			TCHAR alert_msg3[255] = { 0 };
 			iListIndex = pList->GetCurSel();
-			wsprintf(alert_msg3, _T("List选中项：%d\r\n"), iListIndex);
+			wsprintf(alert_msg3, _T("List选中项索引：%d\r\n"), iListIndex);
 			OutputDebugString(alert_msg3);
 			CListTextElementUI* pListElement = static_cast<CListTextElementUI*>(pList->GetItemAt(iListIndex));
 			if (pListElement != NULL)
@@ -75,13 +75,8 @@ void CFrameWindowWnd::Notify(TNotifyUI& msg) {
 				LPCTSTR pstr1 = pListElement->GetText(1);
 				LPCTSTR pstr2 = pListElement->GetText(2);
 				TCHAR alert_msg4[255] = { 0 };
-				wsprintf(alert_msg4, _T("Lista选中项：%s\r\n"), pstr2);
+				wsprintf(alert_msg4, _T("List选中项值：%s\r\n"), pstr0);
 				OutputDebugString(alert_msg4);
-				//LPCTSTR pstr1 = pListElement->GetText(0);
-				//LPCTSTR pstr2 = pListElement->GetText(1);
-
-				//pListElement->SetText(0, _T("test1"));
-				//pListElement->SetText(1, _T("test2"));
 			}
 		}
 	}
@@ -116,6 +111,9 @@ void CFrameWindowWnd::OnClick(TNotifyUI& msg) {
 		ASSERT(m_pEdit != NULL);
 		if (m_pEdit) {
 			m_pEdit->SetVisible(false);
+			CDuiString str = m_pEdit->GetText();
+			CTextUI *m_pText = static_cast<CTextUI*>(m_PaintManager.FindControl(_T("username")));
+			m_pText->SetText(str);
 		}
 	}
 	else if (pSenderName == _T("helpBtn")) {

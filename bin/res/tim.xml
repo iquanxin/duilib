@@ -100,5 +100,9 @@
                 </VerticalLayout>
             </TabLayout>
         </HorizontalLayout>
+        
+        <HorizontalLayout height="24">
+          <Text text="{c #386382}程序版本：1.0.0{/c}" pos="5, 5, 200, 24" float="true" showhtml="true"/>
+        </HorizontalLayout>
     </VerticalLayout>
 </Window>

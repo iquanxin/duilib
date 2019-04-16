@@ -7,6 +7,7 @@ public:
 	~CFrameWindowWnd();
 
 	virtual void InitWindow();
+
 	virtual LPCTSTR GetWindowClassName() const;
 	virtual CDuiString GetSkinFolder();
 	virtual CDuiString GetSkinFile();
@@ -18,7 +19,6 @@ public:
 	virtual void OnSelectChanged(TNotifyUI& msg);
 
 public:
-	CPaintManagerUI m_pm;
 	int iListIndex;
 	int iComboIndex;
 };

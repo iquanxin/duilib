@@ -13,16 +13,16 @@ LPCTSTR CFrameWindowWnd::GetWindowClassName() const {
 	return _T("UIMainFrame");
 }
 
-UINT CFrameWindowWnd::GetClassStyle() const { 
-	return UI_CLASSSTYLE_FRAME | CS_DBLCLKS;
+CDuiString CFrameWindowWnd::GetSkinFolder() {
+	return _T("");
 }
 
 CDuiString CFrameWindowWnd::GetSkinFile() {
 	return _T("./res/tim.xml");
 }
 
-CDuiString CFrameWindowWnd::GetSkinFolder() {
-	return _T("");
+UINT CFrameWindowWnd::GetClassStyle() const { 
+	return UI_CLASSSTYLE_FRAME | CS_DBLCLKS;
 }
 
 void CFrameWindowWnd::InitWindow() {

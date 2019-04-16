@@ -1,4 +1,4 @@
-## WIN32 应用程序：TIM 项目概述
+﻿## WIN32 应用程序：TIM 项目概述
 
 简介：
 	展示控件及使用方法
@@ -14,3 +14,4 @@
 	TabLayout
 
 界面：
+![运行界面](https://github.com/iquanxin/duilib/blob/master/bin/show/Tim.jpg?raw=true)

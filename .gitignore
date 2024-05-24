@@ -32,11 +32,15 @@
 *.app
 
 DuiLib.v12.suo
+DuiLib.opensdf
+DuiLib.sdf
 
 /Duilib/build
 /lib
+/ipch
 
 #TIM 过滤
 /TIM/Debug
 /TIM/Release
 /TIM/TIM.APS
+
